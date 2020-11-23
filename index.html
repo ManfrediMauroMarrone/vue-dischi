@@ -13,10 +13,19 @@
     <div id="root">
       <div class="wrapper">
         <h1>Music Selection</h1>
+        <select @change="Change()">
+          <option value="">All genres</option>
+          <option v-for="disco in dischi">{{disco.genre}}</option>
+          <!-- <option value="">Pop</option>
+          <option value="">Rock</option>
+          <option value="">Jazz</option>
+          <option value="">Metal</option> -->
+
+        </select>
         <div class="card-container">
-          <div v-for="disco in dischi" class="card">
+          <div v-for="disco in dischi" class="card" v-if="genres">
             <div class="card-img">
-              <img :src="disco.poster" alt="">
+              <img :src="disco.poster" alt="disco.title">
 
             </div>
             <h3>{{disco.author}}</h3>

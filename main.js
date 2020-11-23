@@ -4,12 +4,14 @@ var app = new Vue({
 
       dischi: [],
 
+      genres: false
+
     },
 
     methods: {
-      getRndInteger(min, max) {
-        return Math.floor(Math.random() * (max - min + 1) ) + min;
-      }
+      Change() {
+          this.genres = true
+        }
 
     },
 
@@ -19,12 +21,10 @@ var app = new Vue({
       .then((risposta) => {
         let disco = risposta.data.response
         this.dischi = disco
-        console.log(risposta);
 
       });
 
 
     },
-
 
 });
