@@ -4,19 +4,25 @@
     <meta charset="utf-8">
     <title>Dischi</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" charset="utf-8"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   </head>
   <body>
     <div id="root">
       <div class="wrapper">
+        <h1>Music Selection</h1>
         <div class="card-container">
           <div v-for="disco in dischi" class="card">
-            <img src="disco.poster" alt="">
-            <p>{{disco.author}}</p>
-            <p>{{disco.title}}</p>
-            <p>{{disco.genre}}</p>
-            <p>{{disco.year}}</p>
+            <div class="card-img">
+              <img :src="disco.poster" alt="">
+
+            </div>
+            <h3>{{disco.author}}</h3>
+            <span id="title">{{disco.title}}</span>
+            <span id="genre">{{disco.genre}}</span>
+
           </div>
         </div>
       </div>
