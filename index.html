@@ -13,17 +13,13 @@
     <div id="root">
       <div class="wrapper">
         <h1>Music Selection</h1>
-        <select @change="Change()">
+        <select @change="change()" v-model="selectedGenre">
           <option value="">All genres</option>
-          <option v-for="disco in dischi">{{disco.genre}}</option>
-          <!-- <option value="">Pop</option>
-          <option value="">Rock</option>
-          <option value="">Jazz</option>
-          <option value="">Metal</option> -->
+          <option v-for="genre in genres" :value="genre">{{genre}}</option>
 
         </select>
         <div class="card-container">
-          <div v-for="disco in dischi" class="card" v-if="genres">
+          <div v-for="disco in dischi" class="card" v-if="(selectedGenre == disco.genre || selectedGenre == '')">
             <div class="card-img">
               <img :src="disco.poster" alt="disco.title">
 
@@ -31,6 +27,7 @@
             <h3>{{disco.author}}</h3>
             <span id="title">{{disco.title}}</span>
             <span id="genre">{{disco.genre}}</span>
+            <span id="year">{{disco.year}}</span>
 
           </div>
         </div>
